@@ -17,8 +17,7 @@ public class CircularListImpl implements CircularList{
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return true;
     }
 
     @Override
