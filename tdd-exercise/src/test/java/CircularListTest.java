@@ -1,4 +1,7 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import tdd.CircularList;
 import tdd.CircularListImpl;
@@ -12,7 +15,11 @@ public class CircularListTest {
 
     @BeforeEach
     public void initializeList(){
-        this.circularList = new CircularListImpl();
+        this.circularList = new CircularListImpl();  
     }
 
+    @Test
+    public void testInitialSize(){
+        assertEquals(0, this.circularList.size());
+    }
 }
