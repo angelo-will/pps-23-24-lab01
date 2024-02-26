@@ -6,7 +6,7 @@ package example.model;
  * while the withdrawal is allowed only if the balance greater or equal the withdrawal amount
  */
 public class SimpleBankAccount implements BankAccount {
-
+    
     private double balance;
     private final AccountHolder holder;
 
@@ -36,6 +36,11 @@ public class SimpleBankAccount implements BankAccount {
         if (checkUser(userID) && isWithdrawAllowed(amount)) {
             this.balance -= amount;
         }
+    }
+
+    @Override
+    public void depositWithAtm(int id, int depositAmount) {
+        this.withdraw(id, depositAmount);
     }
 
     private boolean isWithdrawAllowed(final double amount){
