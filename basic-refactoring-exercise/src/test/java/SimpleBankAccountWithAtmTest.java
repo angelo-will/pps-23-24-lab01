@@ -11,6 +11,7 @@ public class SimpleBankAccountWithAtmTest {
     private AccountHolder accountHolder;
     private BankAccount bankAccount;
     private double transactionFee = 1;
+    private double initialDepositAmount = 100;
 
     @BeforeEach
     void beforeEach() {
@@ -31,9 +32,8 @@ public class SimpleBankAccountWithAtmTest {
 
     @Test
     void testDepositWithAtm() {
-        var depositAmount = 100;
-        bankAccount.depositWithAtm(accountHolder.getId(), depositAmount);
-        assertEquals(depositAmount - this.transactionFee, bankAccount.getBalance());
+        bankAccount.depositWithAtm(accountHolder.getId(), this.initialDepositAmount);
+        assertEquals(this.initialDepositAmount - this.transactionFee, bankAccount.getBalance());
     }
 
     @Test

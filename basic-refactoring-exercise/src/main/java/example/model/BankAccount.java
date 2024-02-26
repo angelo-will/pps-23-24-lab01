@@ -35,5 +35,5 @@ public interface BankAccount {
      */
     void withdraw(int userID, double amount);
 
-    void depositWithAtm(int id, int depositAmount);
+    void depositWithAtm(int id, double depositAmount);
 }

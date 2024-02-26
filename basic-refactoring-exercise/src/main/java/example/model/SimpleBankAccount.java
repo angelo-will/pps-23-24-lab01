@@ -39,8 +39,8 @@ public class SimpleBankAccount implements BankAccount {
     }
 
     @Override
-    public void depositWithAtm(int id, int depositAmount) {
-        this.withdraw(id, depositAmount);
+    public void depositWithAtm(int id, double depositAmount) {
+        this.deposit(id, depositAmount);
     }
 
     private boolean isWithdrawAllowed(final double amount){
