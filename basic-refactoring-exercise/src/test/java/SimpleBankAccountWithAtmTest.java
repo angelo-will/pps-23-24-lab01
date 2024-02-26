@@ -55,6 +55,15 @@ public class SimpleBankAccountWithAtmTest {
     }
 
     @Test
+    void testWithdrawWithATM(){
+        double withdrawAmount = 50;
+        int operationWithAtm = 2;
+        bankAccount.depositWithAtm(accountHolder.getId(), this.initialDepositAmount);
+        bankAccount.withdrawWithAtm(accountHolder.getId(), withdrawAmount);
+        assertEquals(this.initialDepositAmount - withdrawAmount - this.transactionFee*operationWithAtm, this.bankAccount.getBalance());
+    }
+
+    @Test
     void testWrongWithdraw() {
         int wrongUserID = 2;
         int withdrawAmount = 70;

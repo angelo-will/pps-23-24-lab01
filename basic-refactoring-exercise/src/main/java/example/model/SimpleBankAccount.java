@@ -50,4 +50,8 @@ public class SimpleBankAccount implements BankAccount {
     private boolean checkUser(final int id) {
         return this.holder.getId() == id;
     }
+    @Override
+    public void withdrawWithAtm(int id, double withdrawAmount) {
+        this.withdraw(id, withdrawAmount);
+    }
 }

@@ -14,6 +14,13 @@ public class SimpleBankAccountWithAtm extends SimpleBankAccount{
         this.deposit(id, depositAmount - this.transactionFee);
     }
 
+    @Override
+    public void withdrawWithAtm(int id, double withdrawAmount) {
+        this.withdraw(id, withdrawAmount + this.transactionFee);    
+    }
+
+
+
     public double getFee(){
         return this.transactionFee;
     }
