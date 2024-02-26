@@ -10,7 +10,7 @@ public class SimpleBankAccountWithAtm extends SimpleBankAccount{
     }
 
     @Override
-    public void depositWithAtm(int id, int depositAmount) {
+    public void depositWithAtm(int id, double depositAmount) {
         this.deposit(id, depositAmount - this.transactionFee);
     }
 
