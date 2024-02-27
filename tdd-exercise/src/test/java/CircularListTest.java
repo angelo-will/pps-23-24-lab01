@@ -48,4 +48,11 @@ public class CircularListTest {
         this.circularList.add(0);
         assertFalse(this.circularList.isEmpty());
     }
+
+    @Test
+    public void testNextAfterAdd(){
+        int elementToAdd = 0;
+        this.circularList.add(elementToAdd);
+        assertEquals(Optional.of(elementToAdd),this.circularList.next());
+    }
 }
