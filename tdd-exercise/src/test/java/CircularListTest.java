@@ -2,7 +2,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,10 +19,12 @@ import tdd.CircularListImpl;
 public class CircularListTest {
 
     private CircularList circularList;
+    private List<Integer> listForComparison;
 
     @BeforeEach
     public void initializeList() {
         this.circularList = new CircularListImpl();
+        this.listForComparison = new ArrayList<>();
     }
 
     @Test
@@ -54,5 +59,15 @@ public class CircularListTest {
         int elementToAdd = 0;
         this.circularList.add(elementToAdd);
         assertEquals(Optional.of(elementToAdd),this.circularList.next());
+    }
+
+    @Test
+    public void textNextWithMultipleAdd(){
+        this.listForComparison = new ArrayList<>();
+        IntStream.range(0, 10).forEach(i -> {
+            this.circularList.add(i);
+            this.listForComparison.add(i);
+        });
+        this.listForComparison.forEach(i -> assertEquals(i, this.circularList.next().get()));
     }
 }
