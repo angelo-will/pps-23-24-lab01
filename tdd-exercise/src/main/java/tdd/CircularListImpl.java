@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class CircularListImpl implements CircularList{
 
     private List<Integer> list;
+    private int index;
 
     public CircularListImpl(){
         this.list = new ArrayList<Integer>();
@@ -29,7 +30,9 @@ public class CircularListImpl implements CircularList{
 
     @Override
     public Optional<Integer> next() {
-        return Optional.empty();
+        Optional<Integer> value = this.isEmpty() ? Optional.empty() : Optional.of(this.list.get(this.index));
+        this.index = this.index+1;
+        return value;
     }
 
     @Override
