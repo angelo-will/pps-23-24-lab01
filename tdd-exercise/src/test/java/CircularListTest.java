@@ -34,7 +34,7 @@ public class CircularListTest {
     
     @Test
     public void testNextWithEmptyList(){
-        assertEquals(Optional.empty(), this.circularList.next().get().intValue());
+        assertEquals(Optional.empty(), this.circularList.next());
     }
     
     @Test
