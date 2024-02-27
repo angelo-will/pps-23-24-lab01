@@ -62,12 +62,13 @@ public class CircularListTest {
     }
 
     @Test
-    public void textNextWithMultipleAdd(){
+    public void testNextUsingCircularity(){
         this.listForComparison = new ArrayList<>();
         IntStream.range(0, 10).forEach(i -> {
             this.circularList.add(i);
             this.listForComparison.add(i);
         });
+        this.listForComparison.forEach(i -> assertEquals(i, this.circularList.next().get()));
         this.listForComparison.forEach(i -> assertEquals(i, this.circularList.next().get()));
     }
 }
