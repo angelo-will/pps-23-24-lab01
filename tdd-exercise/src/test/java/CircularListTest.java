@@ -28,18 +28,19 @@ public class CircularListTest {
     }
 
     @Test
-    public void testInitialSize() {
-        assertEquals(0, this.circularList.size());
-    }
-
-    @Test
     public void testIsEmpty() {
         assertTrue(this.circularList.isEmpty());
     }
 
     @Test
-    public void testNextWithEmptyList() {
-        assertEquals(Optional.empty(), this.circularList.next());
+    public void testIsEmptyAfterAdd() {
+        this.circularList.add(0);
+        assertFalse(this.circularList.isEmpty());
+    }
+
+    @Test
+    public void testInitialSize() {
+        assertEquals(0, this.circularList.size());
     }
 
     @Test
@@ -49,9 +50,8 @@ public class CircularListTest {
     }
 
     @Test
-    public void testIsEmptyAfterAdd() {
-        this.circularList.add(0);
-        assertFalse(this.circularList.isEmpty());
+    public void testNextWithEmptyList() {
+        assertEquals(Optional.empty(), this.circularList.next());
     }
 
     @Test
@@ -70,5 +70,10 @@ public class CircularListTest {
         });
         this.listForComparison.forEach(i -> assertEquals(i, this.circularList.next().get()));
         this.listForComparison.forEach(i -> assertEquals(i, this.circularList.next().get()));
+    }
+
+    @Test
+    public void testPreviousWithEmptyList(){
+        assertEquals(Optional.empty(), this.circularList.previous());
     }
 }
