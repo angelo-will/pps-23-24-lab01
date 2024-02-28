@@ -4,15 +4,15 @@ import java.util.Optional;
 import java.util.List;
 import java.util.ArrayList;
 
-public class CircularListImpl implements CircularList{
+public class CircularListImpl implements CircularList {
 
     private List<Integer> list;
     private int index;
 
-    public CircularListImpl(){
+    public CircularListImpl() {
         this.list = new ArrayList<Integer>();
     }
-    
+
     @Override
     public void add(int element) {
         this.list.add(element);
@@ -31,7 +31,7 @@ public class CircularListImpl implements CircularList{
     @Override
     public Optional<Integer> next() {
         Optional<Integer> value = this.isEmpty() ? Optional.empty() : Optional.of(this.list.get(this.index));
-        this.index = this.index+1 >= this.size() ? 0 : this.index+1;
+        this.index = this.index + 1 >= this.size() ? 0 : this.index + 1;
         return value;
     }
 

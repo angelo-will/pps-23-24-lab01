@@ -36,33 +36,33 @@ public class CircularListTest {
     public void testIsEmpty() {
         assertTrue(this.circularList.isEmpty());
     }
-    
+
     @Test
-    public void testNextWithEmptyList(){
+    public void testNextWithEmptyList() {
         assertEquals(Optional.empty(), this.circularList.next());
-    }
-    
-    @Test
-    public void testSizeAfterAdd(){
-        this.circularList.add(0);
-        assertEquals(1,this.circularList.size());
     }
 
     @Test
-    public void testIsEmptyAfterAdd(){
+    public void testSizeAfterAdd() {
+        this.circularList.add(0);
+        assertEquals(1, this.circularList.size());
+    }
+
+    @Test
+    public void testIsEmptyAfterAdd() {
         this.circularList.add(0);
         assertFalse(this.circularList.isEmpty());
     }
 
     @Test
-    public void testNextAfterAdd(){
+    public void testNextAfterAdd() {
         int elementToAdd = 0;
         this.circularList.add(elementToAdd);
-        assertEquals(Optional.of(elementToAdd),this.circularList.next());
+        assertEquals(Optional.of(elementToAdd), this.circularList.next());
     }
 
     @Test
-    public void testNextUsingCircularity(){
+    public void testNextUsingCircularity() {
         this.listForComparison = new ArrayList<>();
         IntStream.range(0, 10).forEach(i -> {
             this.circularList.add(i);
