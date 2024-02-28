@@ -82,4 +82,10 @@ public class CircularListTest {
         this.circularList.add(0);
         assertEquals(Optional.of(0), this.circularList.previous());
     }
+
+    @Test
+    public void testPreiousUsingCircularityWithOneElement(){
+        this.circularList.add(0);
+        IntStream.range(0, 10).forEach(i -> assertEquals(Optional.of(0), this.circularList.previous()));
+    }
 }
