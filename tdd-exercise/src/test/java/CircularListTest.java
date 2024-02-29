@@ -103,6 +103,11 @@ public class CircularListTest {
     }
 
     @Test
+    public void testResetWithEmptyList(){
+        this.circularList.reset();
+    }
+
+    @Test
     public void testNextAfterReset(){
         this.circularList.add(0);
         this.circularList.add(1);
