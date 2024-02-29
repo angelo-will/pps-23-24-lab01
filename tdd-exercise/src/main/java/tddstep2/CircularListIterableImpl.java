@@ -1,25 +1,30 @@
 package tddstep2;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class CircularListIterableImpl implements CircularListIterable {
 
+    private List<Integer> list;
+
+    public CircularListIterableImpl(){
+        this.list = new ArrayList<>();
+    }
+
     @Override
     public void add(int element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        this.list.add(element);
     }
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        return this.list.size();
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return this.list.isEmpty();
     }
 
     @Override

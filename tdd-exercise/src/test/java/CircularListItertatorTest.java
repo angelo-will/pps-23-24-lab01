@@ -1,3 +1,9 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.stream.IntStream;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,8 +14,36 @@ public class CircularListItertatorTest {
 
     private CircularListIterable circularList;
 
-    @Test
+    @BeforeEach
     public void initializeList(){
         this.circularList = new CircularListIterableImpl();
+    }
+
+    @Test
+    public void testAdd() {
+        this.circularList.add(0);
+    }
+
+    @Test
+    public void tesSizeWithEmptyList() {
+        assertEquals(0, this.circularList.size());
+    }
+
+    @Test
+    public void testSizeWithElements() {
+        int elementsQuantity = 10;
+        IntStream.range(0, elementsQuantity).forEach(integer->this.circularList.add(integer));
+        assertEquals(elementsQuantity, this.circularList.size());
+    }
+
+    @Test
+    public void testIsEmptyWithEmptyList() {
+        assertTrue(this.circularList.isEmpty());
+    }
+
+    @Test
+    public void testIsEmptyWithListNotEmpty() {
+        this.circularList.add(0);
+        assertFalse(this.circularList.isEmpty());
     }
 }
