@@ -1,6 +1,7 @@
 package tddstep2;
 
 import java.util.Iterator;
+import java.util.Optional;
 
 public interface CircularListIterable {
 
@@ -10,8 +11,8 @@ public interface CircularListIterable {
 
     public boolean isEmpty();
 
-    public Iterator<Integer> forwardIterator();
+    public Iterator<Optional<Integer>> forwardIterator();
 
-    public Iterator<Integer> backwardIterator();
+    public Iterator<Optional<Integer>> backwardIterator();
 
 }

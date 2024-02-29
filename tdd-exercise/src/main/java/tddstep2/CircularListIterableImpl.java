@@ -3,6 +3,7 @@ package tddstep2;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 public class CircularListIterableImpl implements CircularListIterable {
 
@@ -28,8 +29,8 @@ public class CircularListIterableImpl implements CircularListIterable {
     }
 
     @Override
-    public Iterator<Integer> forwardIterator() {
-        return new Iterator<Integer>() {
+    public Iterator<Optional<Integer>> forwardIterator() {
+        return new Iterator<Optional<Integer>>() {
             private int index;
 
             @Override
@@ -38,8 +39,8 @@ public class CircularListIterableImpl implements CircularListIterable {
             }
 
             @Override
-            public Integer next() {
-                int actualValue = list.get(index);
+            public Optional<Integer> next() {
+                Optional<Integer> actualValue = list.isEmpty() ? Optional.empty() : Optional.of(list.get(index));
                 this.index = this.index + 1 >= list.size() ? 0 : this.index + 1;
                 return actualValue;
             }
@@ -48,7 +49,7 @@ public class CircularListIterableImpl implements CircularListIterable {
     }
 
     @Override
-    public Iterator<Integer> backwardIterator() {
+    public Iterator<Optional<Integer>> backwardIterator() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'backwardIterator'");
     }
