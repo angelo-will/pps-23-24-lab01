@@ -129,8 +129,9 @@ public class CircularListTest {
 
     @Test
     public void testNextAndPreviousTogether() {
+        int rangeUpperLimitList = 5;
         this.listForComparison = new ArrayList<>();
-        IntStream.range(0, 5).forEach(element -> {
+        IntStream.range(0, rangeUpperLimitList).forEach(element -> {
             this.circularList.add(element);
             listForComparison.add(element);
         });
@@ -142,5 +143,17 @@ public class CircularListTest {
         assertEquals(listIterator.next(),this.circularList.next().get());
         assertEquals(listIterator.previous(),this.circularList.previous().get());
         assertEquals(listIterator.previous(),this.circularList.previous().get());
+    }
+    
+    @Test
+    public void testNextAndPreviousOnLimitList() {
+        int elementToTest = 1;
+        this.circularList.add(0);
+        this.circularList.add(1);
+        this.circularList.next();
+        assertEquals(elementToTest, this.circularList.next().get());
+        assertEquals(elementToTest, this.circularList.previous().get());
+        assertEquals(elementToTest, this.circularList.next().get());
+        assertEquals(elementToTest, this.circularList.previous().get());
     }
 }
