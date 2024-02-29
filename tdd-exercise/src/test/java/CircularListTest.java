@@ -103,12 +103,12 @@ public class CircularListTest {
     }
 
     @Test
-    public void testResetWithEmptyList(){
+    public void testResetWithEmptyList() {
         this.circularList.reset();
     }
 
     @Test
-    public void testNextAfterReset(){
+    public void testNextAfterReset() {
         this.circularList.add(0);
         this.circularList.add(1);
         this.circularList.next();
@@ -117,11 +117,12 @@ public class CircularListTest {
     }
 
     @Test
-    public void testPreviousAfterReset(){
+    public void testPreviousAfterReset() {
+        int elementToTest = 1;
         this.circularList.add(0);
-        this.circularList.add(1);
+        this.circularList.add(elementToTest);
         this.circularList.previous();
         this.circularList.reset();
-        assertEquals(1, this.circularList.previous().get());
+        assertEquals(elementToTest, this.circularList.previous().get());
     }
 }
