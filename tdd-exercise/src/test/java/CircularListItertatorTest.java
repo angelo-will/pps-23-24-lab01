@@ -50,6 +50,13 @@ public class CircularListItertatorTest {
     }
 
     @Test
+    public void testForwardIteratorWithEmptyList() {
+        int testQuantity = 10;
+        var iterator = this.circularList.forwardIterator();
+        IntStream.range(0, testQuantity).forEach(i -> assertEquals(Optional.empty(), iterator.next()));
+    }
+
+    @Test
     public void testForwardIteratorCircularity() {
         int elementsQuantity = 10;
         IntStream.range(0, elementsQuantity).forEach(integer -> this.circularList.add(integer));
