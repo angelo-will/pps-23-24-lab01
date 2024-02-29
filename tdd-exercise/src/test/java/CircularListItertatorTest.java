@@ -2,6 +2,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Iterator;
 import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -47,4 +48,12 @@ public class CircularListItertatorTest {
         assertFalse(this.circularList.isEmpty());
     }
 
+    @Test
+    public void testForwardIteratorCircularity() {
+        int elementsQuantity = 10;
+        IntStream.range(0, elementsQuantity).forEach(integer -> this.circularList.add(integer));
+        Iterator<Integer> iterator = this.circularList.forwardIterator();
+        IntStream.range(0, elementsQuantity).forEach(integer -> assertEquals(integer, iterator.next()));
+        IntStream.range(0, elementsQuantity).forEach(integer -> assertEquals(integer, iterator.next()));
+    }
 }

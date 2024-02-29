@@ -29,8 +29,22 @@ public class CircularListIterableImpl implements CircularListIterable {
 
     @Override
     public Iterator<Integer> forwardIterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'forwardIterator'");
+        return new Iterator<Integer>() {
+            private int index;
+
+            @Override
+            public boolean hasNext() {
+                return true;
+            }
+
+            @Override
+            public Integer next() {
+                int actualValue = list.get(index);
+                this.index = this.index + 1 >= list.size() ? 0 : this.index + 1;
+                return actualValue;
+            }
+
+        };
     }
 
     @Override
