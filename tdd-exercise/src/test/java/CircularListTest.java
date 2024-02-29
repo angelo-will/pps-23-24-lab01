@@ -87,8 +87,9 @@ public class CircularListTest {
 
     @Test
     public void testPreviousUsingCircularityWithOneElement() {
+        int rangeUpperLimitList = 10;
         this.circularList.add(0);
-        IntStream.range(0, 10).forEach(i -> assertEquals(Optional.of(0), this.circularList.previous()));
+        IntStream.range(0, rangeUpperLimitList).forEach(i -> assertEquals(Optional.of(0), this.circularList.previous()));
     }
 
     @Test
@@ -149,7 +150,7 @@ public class CircularListTest {
     public void testNextAndPreviousOnLimitList() {
         int elementToTest = 1;
         this.circularList.add(0);
-        this.circularList.add(1);
+        this.circularList.add(elementToTest);
         this.circularList.next();
         assertEquals(elementToTest, this.circularList.next().get());
         assertEquals(elementToTest, this.circularList.previous().get());
