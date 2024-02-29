@@ -30,28 +30,25 @@ public class CircularListIterableImpl implements CircularListIterable {
 
     @Override
     public Iterator<Optional<Integer>> forwardIterator() {
-        return new Iterator<Optional<Integer>>() {
-            private int index;
-
-            @Override
-            public boolean hasNext() {
-                return true;
-            }
-
+        return new CircularIterator<Optional<Integer>>() {
             @Override
             public Optional<Integer> next() {
-                Optional<Integer> actualValue = list.isEmpty() ? Optional.empty() : Optional.of(list.get(index));
-                this.index = this.index + 1 >= list.size() ? 0 : this.index + 1;
+                Optional<Integer> actualValue = list.isEmpty() ? Optional.empty()
+                        : Optional.of(list.get(this.getIndex()));
+                this.indexPolicy();
                 return actualValue;
             }
 
+            private void indexPolicy() {
+                this.setIndex(this.getIndex() + 1 >= list.size() ? 0 : this.getIndex() + 1);
+            }
         };
     }
 
     @Override
     public Iterator<Optional<Integer>> backwardIterator() {
         return new Iterator<Optional<Integer>>() {
-            private int index;
+            private int index = list.size() - 1;
 
             @Override
             public boolean hasNext() {
@@ -60,9 +57,13 @@ public class CircularListIterableImpl implements CircularListIterable {
 
             @Override
             public Optional<Integer> next() {
-                this.index = this.index <= 0 ? list.size() - 1 : this.index - 1;
                 Optional<Integer> actualValue = list.isEmpty() ? Optional.empty() : Optional.of(list.get(index));
+                this.indexPolicy();
                 return actualValue;
+            }
+
+            private void indexPolicy() {
+                this.index = this.index <= 0 ? list.size() - 1 : this.index - 1;
             }
 
         };
