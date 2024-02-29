@@ -40,13 +40,13 @@ public class CircularListImpl implements CircularList {
         this.index = this.index - 1 < 0 ? this.size() - 1 : this.index - 1;
         return this.getElement(this.index);
     }
-    
+
     @Override
     public void reset() {
         this.index = 0;
     }
-    
-    private Optional<Integer> getElement(int index){
+
+    private Optional<Integer> getElement(int index) {
         return this.isEmpty() ? Optional.empty() : Optional.of(this.list.get(index));
     }
 }
