@@ -136,15 +136,15 @@ public class CircularListTest {
             listForComparison.add(element);
         });
         ListIterator<Integer> listIterator = this.listForComparison.listIterator();
-        assertEquals(listIterator.next(),this.circularList.next().get());
-        assertEquals(listIterator.previous(),this.circularList.previous().get());
-        assertEquals(listIterator.next(),this.circularList.next().get());
-        assertEquals(listIterator.next(),this.circularList.next().get());
-        assertEquals(listIterator.next(),this.circularList.next().get());
-        assertEquals(listIterator.previous(),this.circularList.previous().get());
-        assertEquals(listIterator.previous(),this.circularList.previous().get());
+        assertEquals(listIterator.next(), this.circularList.next().get());
+        assertEquals(listIterator.previous(), this.circularList.previous().get());
+        assertEquals(listIterator.next(), this.circularList.next().get());
+        assertEquals(listIterator.next(), this.circularList.next().get());
+        assertEquals(listIterator.next(), this.circularList.next().get());
+        assertEquals(listIterator.previous(), this.circularList.previous().get());
+        assertEquals(listIterator.previous(), this.circularList.previous().get());
     }
-    
+
     @Test
     public void testNextAndPreviousOnLimitList() {
         int elementToTest = 1;
