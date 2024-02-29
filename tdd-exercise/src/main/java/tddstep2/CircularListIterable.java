@@ -3,7 +3,7 @@ package tddstep2;
 import java.util.Iterator;
 
 public interface CircularListIterable {
-    
+
     public void add(int element);
 
     public int size();

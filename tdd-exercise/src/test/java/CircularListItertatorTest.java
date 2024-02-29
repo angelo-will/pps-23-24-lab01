@@ -15,7 +15,7 @@ public class CircularListItertatorTest {
     private CircularListIterable circularList;
 
     @BeforeEach
-    public void initializeList(){
+    public void initializeList() {
         this.circularList = new CircularListIterableImpl();
     }
 
@@ -32,7 +32,7 @@ public class CircularListItertatorTest {
     @Test
     public void testSizeWithElements() {
         int elementsQuantity = 10;
-        IntStream.range(0, elementsQuantity).forEach(integer->this.circularList.add(integer));
+        IntStream.range(0, elementsQuantity).forEach(integer -> this.circularList.add(integer));
         assertEquals(elementsQuantity, this.circularList.size());
     }
 
@@ -46,4 +46,5 @@ public class CircularListItertatorTest {
         this.circularList.add(0);
         assertFalse(this.circularList.isEmpty());
     }
+
 }

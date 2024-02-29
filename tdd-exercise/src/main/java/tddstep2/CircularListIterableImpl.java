@@ -8,7 +8,7 @@ public class CircularListIterableImpl implements CircularListIterable {
 
     private List<Integer> list;
 
-    public CircularListIterableImpl(){
+    public CircularListIterableImpl() {
         this.list = new ArrayList<>();
     }
 
