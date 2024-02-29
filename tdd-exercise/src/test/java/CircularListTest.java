@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -124,5 +125,22 @@ public class CircularListTest {
         this.circularList.previous();
         this.circularList.reset();
         assertEquals(elementToTest, this.circularList.previous().get());
+    }
+
+    @Test
+    public void testNextAndPreviousTogether() {
+        this.listForComparison = new ArrayList<>();
+        IntStream.range(0, 5).forEach(element -> {
+            this.circularList.add(element);
+            listForComparison.add(element);
+        });
+        ListIterator<Integer> listIterator = this.listForComparison.listIterator();
+        assertEquals(listIterator.next(),this.circularList.next().get());
+        assertEquals(listIterator.previous(),this.circularList.previous().get());
+        assertEquals(listIterator.next(),this.circularList.next().get());
+        assertEquals(listIterator.next(),this.circularList.next().get());
+        assertEquals(listIterator.next(),this.circularList.next().get());
+        assertEquals(listIterator.previous(),this.circularList.previous().get());
+        assertEquals(listIterator.previous(),this.circularList.previous().get());
     }
 }
