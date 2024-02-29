@@ -50,8 +50,22 @@ public class CircularListIterableImpl implements CircularListIterable {
 
     @Override
     public Iterator<Optional<Integer>> backwardIterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'backwardIterator'");
+        return new Iterator<Optional<Integer>>() {
+            private int index;
+
+            @Override
+            public boolean hasNext() {
+                return true;
+            }
+
+            @Override
+            public Optional<Integer> next() {
+                this.index = this.index <= 0 ? list.size() - 1 : this.index - 1;
+                Optional<Integer> actualValue = list.isEmpty() ? Optional.empty() : Optional.of(list.get(index));
+                return actualValue;
+            }
+
+        };
     }
 
 }

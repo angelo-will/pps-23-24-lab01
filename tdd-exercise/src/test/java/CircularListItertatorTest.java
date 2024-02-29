@@ -2,7 +2,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -63,5 +65,25 @@ public class CircularListItertatorTest {
         Iterator<Optional<Integer>> iterator = this.circularList.forwardIterator();
         IntStream.range(0, elementsQuantity).forEach(integer -> assertEquals(integer, iterator.next().get()));
         IntStream.range(0, elementsQuantity).forEach(integer -> assertEquals(integer, iterator.next().get()));
+    }
+
+    @Test
+    public void testBackwardIteratorWithEmptyList() {
+        int testQuantity = 10;
+        var iterator = this.circularList.backwardIterator();
+        IntStream.range(0, testQuantity).forEach(i -> assertEquals(Optional.empty(), iterator.next()));
+    }
+
+    @Test
+    public void testBackwardIteratorCircularity() {
+        int elementsQuantity = 10;
+        List<Integer> listForComparison = new ArrayList<>();
+        IntStream.range(0, elementsQuantity).forEach(integer -> {
+            this.circularList.add(integer);
+            listForComparison.addFirst(integer);
+        });
+        var iterator = this.circularList.backwardIterator();
+        listForComparison.forEach(element -> assertEquals(element, iterator.next().get()));
+        listForComparison.forEach(element -> assertEquals(element, iterator.next().get()));
     }
 }
