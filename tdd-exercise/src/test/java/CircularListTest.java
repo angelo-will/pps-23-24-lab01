@@ -98,7 +98,7 @@ public class CircularListTest {
         listForComparison = new ArrayList<>();
         IntStream.range(0, rangeUpperLimitList).forEach(i -> {
             this.circularList.add(i);
-            this.listForComparison.add(rangeUpperLimitList - 1 - i);
+            this.listForComparison.addFirst(i);
         });
         this.listForComparison.forEach(element -> assertEquals(element, this.circularList.previous().get()));
         this.listForComparison.forEach(element -> assertEquals(element, this.circularList.previous().get()));
