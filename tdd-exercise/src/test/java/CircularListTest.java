@@ -19,7 +19,7 @@ import tdd.CircularListImpl;
  */
 public class CircularListTest {
 
-    private CircularList circularList;
+    protected CircularList circularList;
     private List<Integer> listForComparison;
 
     @BeforeEach
