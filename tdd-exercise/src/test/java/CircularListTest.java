@@ -101,4 +101,13 @@ public class CircularListTest {
         this.listForComparison.forEach(element -> assertEquals(element, this.circularList.previous().get()));
         this.listForComparison.forEach(element -> assertEquals(element, this.circularList.previous().get()));
     }
+
+    @Test
+    public void testNextAfterReset(){
+        this.circularList.add(0);
+        this.circularList.add(1);
+        this.circularList.next();
+        this.circularList.reset();
+        assertEquals(0, this.circularList.next().get());
+    }
 }
