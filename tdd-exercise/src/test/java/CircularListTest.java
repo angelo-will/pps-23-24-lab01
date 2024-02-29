@@ -115,4 +115,13 @@ public class CircularListTest {
         this.circularList.reset();
         assertEquals(0, this.circularList.next().get());
     }
+
+    @Test
+    public void testPreviousAfterReset(){
+        this.circularList.add(0);
+        this.circularList.add(1);
+        this.circularList.previous();
+        this.circularList.reset();
+        assertEquals(1, this.circularList.previous().get());
+    }
 }
