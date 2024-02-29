@@ -63,8 +63,9 @@ public class CircularListTest {
 
     @Test
     public void testNextUsingCircularity() {
+        int rangeUpperLimitList = 10;
         this.listForComparison = new ArrayList<>();
-        IntStream.range(0, 10).forEach(i -> {
+        IntStream.range(0, rangeUpperLimitList).forEach(i -> {
             this.circularList.add(i);
             this.listForComparison.add(i);
         });
@@ -91,10 +92,13 @@ public class CircularListTest {
 
     @Test
     public void testPreviousUsingCircularityWithMoreElements() {
-        IntStream.range(0, 3).forEach(i -> this.circularList.add(i));
-        assertEquals(2, this.circularList.previous().get());
-        assertEquals(1, this.circularList.previous().get());
-        assertEquals(0, this.circularList.previous().get());
-        assertEquals(2, this.circularList.previous().get());
+        int rangeUpperLimitList = 3;
+        listForComparison = new ArrayList<>();
+        IntStream.range(0, rangeUpperLimitList).forEach(i -> {
+            this.circularList.add(i);
+            this.listForComparison.add(rangeUpperLimitList - 1 - i);
+        });
+        this.listForComparison.forEach(element -> assertEquals(element, this.circularList.previous().get()));
+        this.listForComparison.forEach(element -> assertEquals(element, this.circularList.previous().get()));
     }
 }
