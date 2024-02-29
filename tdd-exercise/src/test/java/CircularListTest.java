@@ -73,24 +73,24 @@ public class CircularListTest {
     }
 
     @Test
-    public void testPreviousWithEmptyList(){
+    public void testPreviousWithEmptyList() {
         assertEquals(Optional.empty(), this.circularList.previous());
     }
 
     @Test
-    public void testPreviousAfterAdd(){
+    public void testPreviousAfterAdd() {
         this.circularList.add(0);
         assertEquals(Optional.of(0), this.circularList.previous());
     }
 
     @Test
-    public void testPreviousUsingCircularityWithOneElement(){
+    public void testPreviousUsingCircularityWithOneElement() {
         this.circularList.add(0);
         IntStream.range(0, 10).forEach(i -> assertEquals(Optional.of(0), this.circularList.previous()));
     }
 
     @Test
-    public void testPreviousUsingCircularityWithMoreElements(){
+    public void testPreviousUsingCircularityWithMoreElements() {
         IntStream.range(0, 3).forEach(i -> this.circularList.add(i));
         assertEquals(2, this.circularList.previous().get());
         assertEquals(1, this.circularList.previous().get());
