@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CircularListImpl implements CircularList {
 
-    private List<Integer> list;
+    protected List<Integer> list;
     private int index;
 
     public CircularListImpl() {
